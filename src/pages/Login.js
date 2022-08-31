@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
-import addEmail from '../redux/actions/index';
+import addEmail from '../redux/actions/userAction';
 
 class Login extends React.Component {
   constructor() {
@@ -45,7 +45,6 @@ class Login extends React.Component {
         disabled: true,
       });
     }
-    console.log(inputUserPassword.length);
   }
 
   render() {

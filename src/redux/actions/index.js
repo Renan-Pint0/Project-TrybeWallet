@@ -1,6 +1,4 @@
-const addEmail = (email) => ({
-  type: 'ADD-EMAIL',
-  email,
-});
-
-export default addEmail;
+export const ADD_EMAIL = 'ADD_EMAIL';
+export const REQUEST_DATA = 'REQUEST_DATA';
+export const FAILED_REQUEST = 'FAILED_REQUEST';
+export const SAVE_DATA = 'SAVE_DATA';
