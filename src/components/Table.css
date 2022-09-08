@@ -1,0 +1,8 @@
+.tableContent{
+  display: flex;
+  justify-content: space-evenly;
+}
+.tableValues{
+  display: flex;
+  justify-content: space-evenly;
+}
