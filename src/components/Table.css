@@ -1,8 +1,9 @@
-.tableContent{
+.tableContent {
   display: flex;
   justify-content: space-evenly;
 }
-.tableValues{
+
+.tableValues {
   display: flex;
   justify-content: space-evenly;
 }
