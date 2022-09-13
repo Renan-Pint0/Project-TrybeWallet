@@ -1,4 +1,10 @@
-import { FAILED_REQUEST, REQUEST_DATA, SAVE_DATA, SUBMIT_DATA } from '../actions';
+import {
+  FAILED_REQUEST,
+  REMOVE_DATA,
+  REQUEST_DATA,
+  SAVE_DATA,
+  SUBMIT_DATA,
+} from '../actions';
 
 const INITIAL_STATE = {
   currencies: [],
@@ -33,11 +39,18 @@ const walletReducer = (state = INITIAL_STATE, action) => {
       ],
       total: [...state.expenses, action.data].reduce(
         (acc, { value, currency, exchangeRates }) => {
-          const totalValue = acc + value * exchangeRates[currency].ask;
-          return totalValue;
+          const total = acc + value * exchangeRates[currency].ask;
+          return total;
         },
         0,
       ),
+    };
+  case REMOVE_DATA:
+    return {
+      ...state,
+      expenses: [
+        ...state.expenses.filter((expense) => expense.id !== action.id),
+      ],
     };
   default:
     return state;

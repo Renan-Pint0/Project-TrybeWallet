@@ -22,4 +22,25 @@ describe('Testing the application to get 60% coverage', () => {
     const { pathname } = history.location;
     expect(pathname).toBe('/carteira');
   });
+  test('Test the WalletForm compenent', () => {
+    const { history } = renderWithRouterAndRedux(<App />);
+    history.push('/carteira');
+    const valueInput = screen.getByTestId('value-input');
+    const submitButton = screen.getByRole('button');
+    expect(valueInput).toBeInTheDocument();
+    userEvent.type(valueInput, '2');
+    expect(valueInput).toHaveDisplayValue('2');
+    userEvent.click(submitButton);
+    expect(valueInput).toHaveDisplayValue('');
+  });
+  test('Test the Table compenent', async () => {
+    const { history } = renderWithRouterAndRedux(<App />);
+    history.push('/carteira');
+    const valueInput = screen.getByTestId('value-input');
+    const submitButton = screen.getByRole('button');
+    expect(submitButton).toHaveTextContent(/Adicionar despesa/i);
+    expect(valueInput).toBeInTheDocument();
+    expect(submitButton).toBeInTheDocument();
+    userEvent.click(submitButton);
+  });
 });
